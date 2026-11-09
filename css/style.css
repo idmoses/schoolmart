@@ -1,0 +1,750 @@
+/* =========================================
+   1. ROOT VARIABLES & THEME SETTINGS
+========================================= */
+
+:root {
+    --blue: #1d4ed8;
+    --navy: #0f2a6b;
+    --orange: #f97316;
+    --bg: #f5f8ff;
+    --card: #fff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --soft: #eaf0ff;
+
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Dark Mode - System Preference */
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #0b1226;
+        --card: #131c36;
+        --text: #e8eefc;
+        --muted: #9aa8c7;
+        --line: #243052;
+        --soft: #1a2547;
+
+        color-scheme: dark;
+    }
+}
+
+/* Manual Dark Theme */
+
+:root[data-theme="dark"] {
+    --bg: #0b1226;
+    --card: #131c36;
+    --text: #e8eefc;
+    --muted: #9aa8c7;
+    --line: #243052;
+    --soft: #1a2547;
+
+    color-scheme: dark;
+}
+
+
+/* =========================================
+   2. GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 18px;
+}
+
+
+/* =========================================
+   3. HEADER & NAVIGATION
+========================================= */
+
+header {
+    background: var(--navy);
+    color: #fff;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 64px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.35rem;
+}
+
+.logo b {
+    color: var(--orange);
+}
+
+.nav nav {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav a.l {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: .92rem;
+    opacity: .9;
+}
+
+.nav a.l:hover,
+.nav a.on {
+    background: rgba(255, 255, 255, .14);
+    opacity: 1;
+}
+
+.badge {
+    background: var(--orange);
+    color: #fff;
+    border-radius: 99px;
+    padding: 1px 8px;
+    font-size: .75rem;
+    margin-left: 4px;
+}
+
+
+/* =========================================
+   4. BUTTONS
+========================================= */
+
+.btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font: 700 .95rem 'Open Sans', sans-serif;
+    cursor: pointer;
+    background: var(--orange);
+    color: #fff;
+    transition: .15s;
+}
+
+.btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.btn.b {
+    background: var(--blue);
+}
+
+.btn.o {
+    background: transparent;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+}
+
+.btn.w {
+    width: 100%;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================
+   5. HERO SECTION
+========================================= */
+
+.hero {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: #fff;
+    padding: 64px 0;
+}
+
+.hero .wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero p {
+    opacity: .9;
+    max-width: 520px;
+    margin: 0 0 22px;
+}
+
+.art {
+    font-size: 7rem;
+    text-align: center;
+    background: rgba(255, 255, 255, .1);
+    border-radius: 28px;
+    padding: 20px;
+}
+
+
+/* =========================================
+   6. GENERAL SECTIONS & HEADINGS
+========================================= */
+
+section {
+    padding: 44px 0;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin: 0 0 20px;
+    font-weight: 800;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: var(--orange);
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+
+/* =========================================
+   7. GRID & CATEGORY SECTION
+========================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.cats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+}
+
+.cat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cat:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+}
+
+.cat i {
+    display: block;
+    font-style: normal;
+    font-size: 2.2rem;
+}
+
+
+/* =========================================
+   8. PRODUCT CARDS
+========================================= */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .pic {
+    height: 190px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    overflow: hidden;
+    font-size: 4rem;
+    text-align: center;
+    background: var(--soft);
+}
+
+.pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card .in {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.tag {
+    font-size: .72rem;
+    color: var(--blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.price {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--orange);
+}
+
+.card .in .btn {
+    margin-top: auto;
+}
+
+
+/* =========================================
+   9. BENEFITS / PERKS
+========================================= */
+
+.perks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.perk {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.perk b {
+    display: block;
+    color: var(--blue);
+}
+
+
+/* =========================================
+   10. SEARCH BAR & FORM INPUTS
+========================================= */
+
+.bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    font: inherit;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--text);
+    width: 100%;
+}
+
+.bar input {
+    flex: 2;
+    min-width: 180px;
+}
+
+.bar select {
+    flex: 1;
+    min-width: 140px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid var(--blue);
+    border-color: transparent;
+}
+
+
+/* =========================================
+   11. BOXES & AUTHENTICATION
+========================================= */
+
+.box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.auth {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.auth label,
+.f label {
+    display: block;
+    font-weight: 600;
+    font-size: .85rem;
+    margin: 12px 0 4px;
+}
+
+.err {
+    color: #dc2626;
+    font-size: .85rem;
+    margin-top: 10px;
+    min-height: 1em;
+}
+
+
+/* =========================================
+   12. TWO-COLUMN LAYOUT
+========================================= */
+
+.two {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+
+/* =========================================
+   13. CART & ORDER ROWS
+========================================= */
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.row .e {
+    font-size: 2rem;
+    background: var(--soft);
+    border-radius: 10px;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.row .e img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.row .t {
+    flex: 1;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty button {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.x {
+    background: none;
+    border: 0;
+    color: #dc2626;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   14. CART SUMMARY
+========================================= */
+
+.sum div {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.sum .tot {
+    font-weight: 800;
+    font-size: 1.15rem;
+    border-top: 1px solid var(--line);
+    margin-top: 6px;
+    padding-top: 12px;
+}
+
+
+/* =========================================
+   15. DASHBOARD STATISTICS
+========================================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--orange);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat b {
+    font-size: 1.6rem;
+    display: block;
+    color: var(--blue);
+}
+
+
+/* =========================================
+   16. STATUS LABELS
+========================================= */
+
+.st {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 99px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: .78rem;
+    font-weight: 700;
+}
+
+.st.wait {
+    background: #ffedd5;
+    color: #9a3412;
+}
+
+
+/* =========================================
+   17. TABLES & SCROLLING
+========================================= */
+
+.scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid var(--line);
+    font-size: .92rem;
+}
+
+
+/* =========================================
+   18. EMPTY STATES
+========================================= */
+
+.empty {
+    text-align: center;
+    padding: 50px 10px;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   19. FOOTER
+========================================= */
+
+footer {
+    background: var(--navy);
+    color: #cbd5f5;
+    padding: 34px 0;
+    margin-top: 30px;
+    font-size: .9rem;
+}
+
+footer b {
+    color: #fff;
+}
+
+
+/* =========================================
+   20. TOAST NOTIFICATIONS
+========================================= */
+
+#toast {
+    position: fixed;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: .25s;
+    z-index: 50;
+    border-left: 5px solid var(--orange);
+}
+
+#toast.s {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+
+/* =========================================
+   21. PAYMENT SECTION
+========================================= */
+
+.payb {
+    margin-top: 14px;
+    padding: 14px;
+    border: 1px dashed var(--blue);
+    border-radius: 12px;
+    background: var(--soft);
+    font-size: .92rem;
+}
+
+.payb.err {
+    border-color: #dc2626;
+    margin-top: 14px;
+}
+
+
+/* =========================================
+   22. PAYMENT CARD DESIGN
+========================================= */
+
+.cardv {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 10px;
+    display: grid;
+    gap: 6px;
+}
+
+.cardv b {
+    letter-spacing: .15em;
+}
+
+.cardv small {
+    color: #cbd5f5;
+}
+
+
+/* =========================================
+   23. SMALL TEXT & PRODUCT THUMBNAILS
+========================================= */
+
+.e2 {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--soft);
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+}
+
+.e2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+small {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   24. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 760px) {
+
+    .hero .wrap,
+    .two {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .art {
+        font-size: 4.5rem;
+    }
+
+    .nav {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+
+    .nav nav {
+        margin-left: 0;
+    }
+}
