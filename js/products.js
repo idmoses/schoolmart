@@ -227,9 +227,9 @@ const ADMIN = {
 
 const BANK = {
 
-    bank: 'Your Bank Name',
-    accountName: 'Your Business Name',
-    accountNumber: '0000000000'
+    bank: 'Paystack-titan',
+    accountName: 'Stephanie Fabian',
+    accountNumber: '9609256637'
 
 };
 
