@@ -652,7 +652,6 @@ const V = {
 
                             <select id="cm" onchange="payChk()">
 
-                                <option>Pay on delivery</option>
                                 <option>Bank transfer</option>
                                 <option>Debit card</option>
                                 <option>Paystack</option>
