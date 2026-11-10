@@ -162,7 +162,7 @@ function nav() {
 
     $('#nav').innerHTML = l('home', 'Home') +
         l('shop', 'Shop') +
-        l('cart', 'My Items <span class="badge">' + count() + '</span>') +
+        l('cart', '🛒<span class="badge">' + count() + '</span>') +
         (me
             ? (isA() ? l('admin', 'Admin') : l('dashboard', 'Dashboard')) + '<a class="l" href="#" onclick="out();return false">Logout</a>'
             : l('login', 'Login') + '<a class="btn" style="padding:7px 16px" href="#register">Sign up</a>');
