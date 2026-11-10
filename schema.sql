@@ -42,7 +42,6 @@ begin
     c := c + q;
   end loop;
   new.user_id := auth.uid();
-  new.total := t + 1500;  -- 1500 = delivery fee
   new.item_count := c;
   new.status := case when new.payment = 'Pay on delivery' then 'Processing' else 'Awaiting payment confirmation' end;
   return new;

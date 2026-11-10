@@ -186,6 +186,11 @@ header {
     border-radius: 28px;
     padding: 20px
 }
+img {
+    display: block;
+    max-width: 100%;
+    height: auto
+}
 
 section {
     padding: 44px 0
