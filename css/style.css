@@ -40,12 +40,7 @@
     box-sizing: border-box
 }
 
-html {
-    scroll-padding-top: env(safe-area-inset-top, 0px)
-}
-
 body {
-    margin: 0;
     font-family: 'Open Sans', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
@@ -74,13 +69,13 @@ header {
 .nav {
     display: flex;
     align-items: center;
-    gap: 18px;
-    height: 64px
+    height: 60px
 }
 
 .logo {
     font-weight: 800;
-    font-size: 1.35rem
+    font-size: 1.35rem;
+    padding-left: 20px;
 }
 
 .logo b {
@@ -89,18 +84,18 @@ header {
 
 .nav nav {
     display: flex;
-    gap: 4px;
     margin-left: auto;
     align-items: center;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    padding-left: 9px;
 }
 
 .nav a.l {
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-radius: 8px;
     font-weight: 600;
-    font-size: .92rem;
-    opacity: .9
+    font-size: .90rem;
+    opacity: .7;
 }
 
 .nav a.l:hover,
@@ -186,6 +181,7 @@ header {
     border-radius: 28px;
     padding: 20px
 }
+
 img {
     display: block;
     max-width: 100%;
